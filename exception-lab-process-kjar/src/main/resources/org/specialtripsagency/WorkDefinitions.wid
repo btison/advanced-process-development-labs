@@ -1,0 +1,31 @@
+[
+  [
+    "name" : "WebService",
+    "parameters" : [
+        "Url" : new StringDataType(),
+         "Namespace" : new StringDataType(),
+         "Interface" : new StringDataType(),
+         "Operation" : new StringDataType(),
+         "Parameter" : new StringDataType(),
+         "Endpoint" : new StringDataType(),
+         "Mode" : new StringDataType()
+    ],
+    "results" : [
+        "Result" : new ObjectDataType(),
+    ],
+    "displayName" : "WS",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+
+   [
+    "name" : "CreditCardPaymentService",
+    "parameters" : [
+        "payment" : new ObjectDataType()
+    ],
+    "results" : [
+        "paymentResult" : new ObjectDataType(),
+    ],
+    "displayName" : "Payment Service",
+    "icon" : "defaultservicenodeicon.png"
+  ]
+]
