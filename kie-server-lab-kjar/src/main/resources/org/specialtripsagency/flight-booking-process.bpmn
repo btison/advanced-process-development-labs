@@ -19,6 +19,7 @@
   <bpmn2:itemDefinition id="__22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_bookingInputXItem" structureRef="org.specialtripsagency.BookingObject"/>
   <bpmn2:itemDefinition id="__22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_service_typeInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_flight_bookingOutputXItem" structureRef="org.acme.specialtripsagency.flightservice.Booking"/>
+  <bpmn2:itemDefinition id="__22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_bookingOutputXItem" structureRef="org.specialtripsagency.BookingObject"/>
   <bpmn2:itemDefinition id="__DD21E934-78F2-4277-9318-A8776A8346F8_InterfaceInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__DD21E934-78F2-4277-9318-A8776A8346F8_ModeInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__DD21E934-78F2-4277-9318-A8776A8346F8_NamespaceInputXItem" structureRef="String"/>
@@ -53,7 +54,7 @@
   <bpmn2:itemDefinition id="__F141813C-79EF-434A-AB1E-039588AB600D_CustomerInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__F141813C-79EF-434A-AB1E-039588AB600D_BookingInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__F141813C-79EF-434A-AB1E-039588AB600D_StatusOutputXItem" structureRef="String"/>
-  <bpmn2:process id="kie-server-lab-kjar.fligh-booking-process" drools:packageName="org.specialtripsagency" drools:version="1.0" drools:adHoc="false" name="fligh-booking-process" isExecutable="true">
+  <bpmn2:process id="kie-server-lab-kjar.flight-booking-process" drools:packageName="org.specialtripsagency" drools:version="1.0" drools:adHoc="false" name="flight-booking-process" isExecutable="true">
     <bpmn2:documentation id="_uIWSwdJIEeiTlqHa13fiZw"><![CDATA[]]></bpmn2:documentation>
     <bpmn2:property id="applicantName" itemSubjectRef="_applicantNameItem" name="applicantName"/>
     <bpmn2:property id="flight_carrier" itemSubjectRef="_flight_carrierItem" name="flight_carrier"/>
@@ -514,6 +515,7 @@ org.specialtripsagency.BookingObject _booking = (org.specialtripsagency.BookingO
         <bpmn2:dataInput id="_22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_bookingInputX" drools:dtype="org.specialtripsagency.BookingObject" itemSubjectRef="__22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_bookingInputXItem" name="booking"/>
         <bpmn2:dataInput id="_22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_service_typeInputX" drools:dtype="String" itemSubjectRef="__22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_service_typeInputXItem" name="service_type"/>
         <bpmn2:dataOutput id="_22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_flight_bookingOutputX" drools:dtype="org.acme.specialtripsagency.flightservice.Booking" itemSubjectRef="__22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_flight_bookingOutputXItem" name="flight_booking"/>
+        <bpmn2:dataOutput id="_22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_bookingOutputX" drools:dtype="org.specialtripsagency.BookingObject" itemSubjectRef="__22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_bookingOutputXItem" name="booking"/>
         <bpmn2:inputSet id="_uIXhIdJIEeiTlqHa13fiZw">
           <bpmn2:dataInputRefs>_22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_applicantNameInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_flight_carrierInputX</bpmn2:dataInputRefs>
@@ -557,10 +559,14 @@ org.specialtripsagency.BookingObject _booking = (org.specialtripsagency.BookingO
         <bpmn2:sourceRef>_22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_flight_bookingOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>flightBooking</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="__bbeGBmsEemPdvyD-p4yaA">
+        <bpmn2:sourceRef>_22D82F68-4FC6-4AA8-9200-78CA0E72C8DB_bookingOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>booking</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
     </bpmn2:callActivity>
   </bpmn2:process>
   <bpmndi:BPMNDiagram id="_uIYH-9JIEeiTlqHa13fiZw">
-    <bpmndi:BPMNPlane id="_uIYH_NJIEeiTlqHa13fiZw" bpmnElement="kie-server-lab-kjar.fligh-booking-process">
+    <bpmndi:BPMNPlane id="_uIYH_NJIEeiTlqHa13fiZw" bpmnElement="kie-server-lab-kjar.flight-booking-process">
       <bpmndi:BPMNShape id="shape__22D82F68-4FC6-4AA8-9200-78CA0E72C8DB" bpmnElement="_22D82F68-4FC6-4AA8-9200-78CA0E72C8DB">
         <dc:Bounds height="102.0" width="154.0" x="236.0" y="165.0"/>
       </bpmndi:BPMNShape>
